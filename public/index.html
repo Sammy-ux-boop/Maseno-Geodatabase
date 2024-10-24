@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="leaflet/leaflet.css">
+    <link rel="stylesheet" href="leaflet-routing-machine-3.2.12/leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css">
+    <title>Map Application</title>
+</head>
+<body>
+
+    <!-- Map container -->
+    <div id="map" style="height: 500px;"></div>
+
+    <!-- Query Forms Container -->
+    <div id="queryContainer">
+        <h2>Attribute Query</h2>
+        <div id="queryForm">
+            <label for="layerSelect">Select layer to query:</label>
+            <select id="layerSelect" name="layerSelect" onchange="updateAttributes()">
+                <option value="Hostels">Hostels</option>
+                <option value="Offices">Offices</option>
+                <option value="NewTutionBlock">New Tuition Block</option>
+                <option value="LectureHalls">Lecture Halls</option>
+                <option value="NewLibrary">New Library</option>
+                <option value="Boardroom">Boardroom</option>
+                <option value="Laboratory">Laboratory</option>
+                <option value="Hospitals">Hospitals</option>
+            </select>
+
+            <label for="attributeName">Attribute Name:</label>
+            <select id="attributeName" name="attributeName">
+                <option value="">Select Attribute</option> <!-- Placeholder option -->
+            </select>
+
+            <label for="operator">Operator:</label>
+            <select id="operator" name="operator">
+                <option value="eq">Equal to</option>
+                <option value="neq">Not equal to</option>
+                <option value="gt">Greater than</option>
+                <option value="gte">Greater than or equal to</option>
+                <option value="lt">Less than</option>
+                <option value="lte">Less than or equal to</option>
+                <option value="like">Like</option>
+                <option value="ilike">Case insensitive like</option>
+            </select>
+
+            <label for="attributeValue">Attribute Value:</label>
+            <input type="text" id="attributeValue" name="attributeValue" placeholder="Enter attribute value">
+
+            <button id="submitQuery">Submit Query</button>
+        </div>
+    </div>
+
+    <!-- Query Results Table -->
+    <h2>Query Results</h2>
+    <table id="queryResultsTable" border="1"></table>
+
+    <script src="leaflet/leaflet.js"></script>
+    <script src="leaflet-providers-master/leaflet-providers.js"></script>
+    <script src="leaflet-routing-machine-3.2.12/leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

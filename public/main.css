@@ -1,0 +1,50 @@
+/* styles.css */
+
+/* Basic styles for the query container */
+#queryContainer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures it stays on top of the map */
+}
+
+/* Full height for the map */
+#map {
+    height: 100vh; /* Use full viewport height for the map */
+}
+
+/* Optional styling for the buttons */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Add some styling for the attribute table */
+.attribute-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.attribute-table th, .attribute-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.attribute-table th {
+    background-color: #f2f2f2;
+}
