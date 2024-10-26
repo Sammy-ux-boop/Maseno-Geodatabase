@@ -33,24 +33,22 @@ app.get('/', (req, res) => {
 
 // Function to query a table based on dynamic parameters
 async function queryTable(layer, attributeName, operator, attributeValue) {
-    // Validate input parameters
     if (!layer || !attributeName || !operator || attributeValue === undefined) {
         console.error('All parameters (layer, attributeName, operator, attributeValue) are required.');
         return;
     }
 
-    // Build the query
     const { data, error } = await supabase
-        .from(layer) // Dynamic table name
-        .select('*') // Select all columns
-        .filter(attributeName, operator, attributeValue); // Dynamic filter
+        .from(layer)
+        .select('*')
+        .filter(attributeName, operator, attributeValue);
 
     if (error) {
         console.error(`Error fetching data from ${layer}: ${error.message}`);
-        return; // Exit the function on error
+        return;
     }
 
-    return data; // Return the fetched data
+    return data;
 }
 
 // Fetch data from a specified table with optional filters
@@ -61,9 +59,9 @@ const fetchTableData = async (tableName, filters) => {
         for (const { attribute, operator, value } of filters) {
             const operatorMethod = operatorMap[operator];
             if (operatorMethod) {
-                query = query[operatorMethod](attribute, value); // Apply the corresponding operator
+                query = query[operatorMethod](attribute, value);
             } else {
-                throw new Error(`Invalid operator: ${operator}`); // Handle invalid operator
+                throw new Error(`Invalid operator: ${operator}`);
             }
         }
     }
@@ -90,6 +88,24 @@ tables.forEach(table => {
             res.status(500).send(`Error fetching data from ${table}: ${err.message}`);
         }
     });
+});
+
+// New /api/destinations endpoint to retrieve all destinations
+app.get('/api/NameSearch', async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('NameSearch') // Replace 'your_table_name' with your actual table name
+            .select('Name, geom');    // Retrieve only 'name' and 'geom' columns
+
+        if (error) {
+            throw error;
+        }
+
+        res.json(data);
+    } catch (err) {
+        console.error('Error retrieving destination data:', err.message);
+        res.status(500).send(`Error retrieving destination data: ${err.message}`);
+    }
 });
 
 // Error handling middleware
