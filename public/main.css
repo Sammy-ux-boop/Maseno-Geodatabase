@@ -26,6 +26,7 @@ body {
     border-right: 1px solid #14a3b3; /* Add a border for separation */
     box-shadow: 2px 0 5px rgba(22, 174, 185, 0.1); /* Subtle shadow for depth */
     border: 1px solid #0fb4b4; /* Add border for the sidebar */
+   
 }
 
 /* Map container */
@@ -43,7 +44,7 @@ body {
 /* Query Results Wrapper */
 #queryResultsWrapper {
     padding: 20px; /* Inner padding for results */
-    background-color: rgb(14, 214, 211); /* White background for results */
+    background-color: rgb(191, 212, 212); /* White background for results */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     margin-top: 10px; /* Space above query results */
@@ -67,7 +68,7 @@ body {
 #queryResultsTable th,
 #queryResultsTable td {
     padding: 10px; /* Inner padding for cells */
-    border: 1px solid #0fb79e; /* Light gray border */
+    border: 1px solid #565656; /* Light gray border */
     text-align: left; /* Left-align text */
 }
 
@@ -121,14 +122,6 @@ button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Header styles */
-header {
-    background-color: #007bff; /* Header background color */
-    color: white; /* White text */
-    text-align: center; /* Center text */
-    padding: 15px 0; /* Vertical padding */
-}
-
 /* Adjustments for responsive layout */
 @media (max-width: 768px) {
     .container {
@@ -146,4 +139,30 @@ header {
         margin-top: 10px; /* Space above query results */
         max-height: none; /* Remove max-height on smaller screens */
     }
+}
+
+/* Animations */
+@keyframes change-color {
+    0%, 100% { color: rgb(255, 255, 255); }
+    25% { color: yellow; }
+    50% { color: orange; }
+    75% { color: red; }
+}
+
+/* Header Style with Fixed Background */
+header {
+    background-color: #13c6c0; /* Set your desired fixed background color */
+    padding: 10px; /* Padding for visual space */
+    height: 50px; /* Set a height for the header */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Rotating Header Style */
+#rotatingHeader {
+    white-space: nowrap; /* Prevents text wrapping */
+    animation: change-color 5s linear infinite; /* Only color change animation */
+    color: rgb(255, 255, 255); /* Initial text color */
+    font-size: 1.5em; /* Adjust font size as needed */
 }

@@ -66,6 +66,113 @@ function updateAttributes() {
     }
 }
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const headerElement = document.getElementById("rotatingHeader");
+
+  // Define text options
+const textOptions = [
+    "Geosam Spatial Solution 🌍",
+    "I followed my GPS, and it led me to a cornfield. Thanks, technology! 🌽😂",
+    "GIS: Where 'Map It' is the answer to everything! 🗺️✨",
+    "If you think adventure is dangerous, try mapping! 🧭😅",
+    "I told my map to be quiet, but it just kept showing me the way. 🤫🗺️",
+    "Not all who wander are lost… some are just looking for the nearest coffee shop. ☕️🗺️",
+    "Why did the map break up with the GPS? It couldn’t handle the pressure of a long-distance relationship! 💔📍",
+    "I took a wrong turn and ended up in a ‘No GPS Zone’. Never felt more lost! 🌀😳",
+    "Why don't geographers play hide and seek? Because good luck hiding when you’re always being mapped! 🕵️‍♂️🗺️",
+    "What did the map say to the GPS? 'You're so basic!' 😜🗺️📱",
+    "Why did the geographer break up with the compass? Because it couldn’t find true north! 🧭❤️",
+    "I asked my GPS for directions, and it just told me to 'go straight.' Apparently, it doesn't understand my life choices! 😂🗺️",
+    "You can’t map out your life without a few wrong turns! 🚗🗺️",
+    "I wanted to be a cartographer, but I couldn't find the right path! 😂🗺️",
+    "Why did the GIS analyst bring a ladder to work? Because they wanted to reach new heights in mapping! 🪜🗺️",
+    "Why was the geographer bad at poker? They kept revealing their hands! 🃏🗺️",
+    "What do you call a geographer who lost their way? A lost cause! 🤷‍♂️🗺️",
+    "What did one GIS say to another at the bar? 'Let’s raise our coordinates!' 🍻🗺️",
+    "How does a GIS analyst communicate with their partner? They use spatial reasoning! 🗣️🗺️",
+    "Why do geographers love their job? Because they get to map their way to success! 📈🗺️",
+    "What do you get when you cross a GIS with a GPS? A geo-positioning solution! 🔍🗺️",
+    "Why are maps so good at math? Because they can always find their way to the right answer! ➕🗺️",
+    "What did the GIS analyst say to the lost tourist? 'Let me put you on the map!' 🗺️🤭",
+    "Why did the road get a promotion? Because it knew how to go places! 🛣️📈",
+    "I got lost in thought… it was such a good place to get lost! 💭🗺️",
+    "Why do geographers prefer online shopping? They like to map out the best deals! 🛒🗺️",
+    "I was going to make a GIS joke, but I couldn't find the right coordinates! 😂🗺️",
+    "What’s a GIS analyst’s favorite exercise? Map squats! 🏋️‍♂️🗺️",
+    "Why do maps always get invited to parties? Because they really know how to draw a crowd! 🎉🗺️",
+    "Why did the geographer break up with the globe? It was too round for them! 🥴🌍",
+    "Why do geographers hate nature? Because it keeps changing the map! 🌳🗺️",
+    "I wanted to be a map, but I couldn't find my way! 😂🗺️",
+    "What did the GIS analyst say after a long day? 'I need to unwind and de-map!' 🗺️🛁",
+    "How do geographers stay in shape? They always take the scenic route! 🚴‍♂️🗺️",
+    "What do you call a geographer who tells great stories? A map-tivator! 📖🗺️",
+    "Why do maps make terrible comedians? They always deliver the punchline too late! 😂🗺️",
+    "I told my GPS it was driving me crazy; it responded, 'Turn left at the next lunatic!' 🤪🗺️",
+    "Why are GIS analysts so good at keeping secrets? Because they’re good at keeping things under wraps! 🤫🗺️",
+    "I went to the park with my map; it was quite the 'mapping' adventure! 🏞️🗺️",
+    "What do you call a detective who uses GIS? A geo-sleuth! 🕵️‍♀️🗺️",
+    "Why did the GIS analyst take a nap? They needed to recharge their coordinates! 😴🗺️",
+    "What’s a GIS analyst’s favorite game? Geo-Guessr! 🎮🗺️",
+    "I asked my friend for directions, but he just pointed to a map. I guess that’s one way to navigate! 🗺️😆",
+    "What do you call a cartographer who makes mistakes? A mis-mapper! 🤦‍♂️🗺️",
+    "Why did the GIS analyst get in trouble? They couldn’t stop plotting! 📊🗺️",
+    "How does a GIS analyst stay organized? They always have a map of their tasks! 🗺️📋",
+    "What did the map say to the compass? 'You really keep me grounded!' 🧭💖",
+    "Why was the geographer bad at relationships? They couldn't find common ground! 💔🗺️",
+    "What’s a GIS analyst’s favorite food? Mapping pancakes! 🥞🗺️",
+    "I used to be a map, but I lost my direction in life! 😂🗺️",
+    "Why did the geographer get lost in the library? Too many books on different paths! 📚🗺️",
+    "What did one GIS analyst say to the other at the gym? 'Let’s work on our map-ercise!' 🏋️‍♂️🗺️",
+    "Why do geographers make terrible liars? Because they always get caught in the wrong coordinates! 🤭🗺️",
+    "I asked the GPS for directions, and it told me to take a left at my last bad decision! 😂📍",
+    "Why do geographers love playing cards? They always find the right deck! 🃏🗺️",
+    "What did the map say to the globe? 'You spin me right round!' 🎶🌍",
+    "Why was the map always calm? Because it had a clear route! 😌🗺️",
+    "How do you organize a space party? You planet with maps! 🪐🗺️",
+    "What did the road say to the traffic light? 'Stop looking at me, I'm not your direction!' 🚦😂",
+    "Why are maps great storytellers? Because they always know how to unfold a good plot! 📖🗺️",
+    "I lost my map and ended up going in circles. Now I'm just a lost cause! 🔄😅",
+    "What’s a geographer’s favorite music genre? Map & Roll! 🎸🗺️",
+    "Why do GIS analysts make great friends? They always know the best paths to take! 🤗🗺️",
+    "What do you call a map that tells jokes? A pun-derful atlas! 🤣🗺️",
+    "Why do geographers love parties? They can always find the best spots! 🎉🗺️",
+    "What do you call an indecisive geographer? A lost soul! 😵🗺️",
+    "I asked my map if I was lost; it just replied, 'Not yet!' 😂🗺️",
+    "Why was the geographer always calm? Because they knew how to stay on course! 😌🗺️",
+    "What do you call a mapping disaster? A geo-mess! 🚧🗺️",
+    "How do geographers relax after work? They go on a scenic drive! 🚗🗺️",
+    "Why did the GIS analyst take a vacation? They needed to recharge their batteries! 🔋🌴",
+    "What did one GIS analyst say to the other? 'Let’s map out our future!' 🗺️✨",
+    "Why did the map get promoted? Because it always led the way! 📈🗺️",
+    "I tried to make a GPS joke, but it didn’t point in the right direction! 😂📍",
+    "What do you call a group of maps? A carto-crew! 🗺️👯‍♂️",
+    "Why was the geographer so good at charades? They always knew how to read the map! 🎭🗺️",
+    "How does a GIS analyst stay fit? By taking all the right turns! 🔄🏃‍♂️",
+    "Why did the map go to school? To improve its geography! 🏫🗺️",
+    "What did the GPS say to the lost car? 'Don't worry, you’re just taking the scenic route!' 🚗🌅",
+    "Why do geographers make great bakers? They know how to measure the right proportions! 🍰🗺️",
+    "What did the map say to the tourist? 'You’ve got this!' 🗺️👍",
+    "How do you cheer up a lost map? Just say, 'You’re always on the right path!' 🗺️😊",
+    "Why did the road win an award? Because it was the best route to success! 🛤️🏆",
+    "What did one GIS analyst say to the other at lunch? 'Let’s map out our meal!' 🥗🗺️",
+    "Why did the geographer become a comedian? Because they had a great sense of direction! 😂🗺️"
+];
+
+    let currentIndex = 0;
+
+    // Function to update text content
+    function updateHeader() {
+        headerElement.textContent = textOptions[currentIndex];
+        currentIndex = (currentIndex + 1) % textOptions.length;
+    }
+
+    // Initial display and interval setup
+    updateHeader(); // Display the first text initially
+    setInterval(updateHeader, 15000); // Update text every 15 seconds
+});
+
+
 // Add event listener to populate attributes when the layer is changed
 document.getElementById('layerSelect').addEventListener('change', updateAttributes);
 
